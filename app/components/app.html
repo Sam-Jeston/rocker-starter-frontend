@@ -6,22 +6,17 @@
           <h3 class="masthead-brand">Rock Starter</h3>
           <nav class="nav nav-masthead">
             <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Home</a>
-            <a class="nav-link" [routerLink]="['/contact']" routerLinkActive="active">Features</a>
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" [routerLink]="['/how-it-works']" routerLinkActive="active">How it Works</a>
+            <a class="nav-link" [routerLink]="['/get-involved']" routerLinkActive="active">Get Involved</a>
           </nav>
         </div>
       </div>
       <div class="inner cover">
-        <h1 class="cover-heading">Cover your page.</h1>
-        <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-        <p class="lead">
-          <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
-        </p>
+        <router-outlet></router-outlet>
       </div>
-      <router-outlet></router-outlet>
       <div class="mastfoot">
         <div class="inner">
-          <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+          <p>Free always for everyone, by <a href="https://techjeston.com">Sam Jeston</a>.</p>
         </div>
       </div>
     </div>

@@ -1,13 +1,14 @@
 import { Component } from '@angular/core'
 import { ROUTER_DIRECTIVES } from '@angular/router'
 import { SongComponent } from './song/song.component'
-import { ContactComponent } from './contact/contact.component'
+import { InvolvedComponent } from './involved/involved.component'
+import { HowComponent } from './how/how.component'
 
 @Component({
   selector: 'my-app',
   templateUrl: 'app/components/app.html',
   directives: [ROUTER_DIRECTIVES],
-  precompile: [SongComponent, ContactComponent]
+  precompile: [SongComponent, InvolvedComponent, HowComponent]
 })
 
 // Comenneted out i

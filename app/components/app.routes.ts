@@ -1,6 +1,7 @@
 import { provideRouter, RouterConfig }  from '@angular/router'
 import { SongComponent } from './song/song.component'
-import { ContactComponent } from './contact/contact.component'
+import { InvolvedComponent } from './involved/involved.component'
+import { HowComponent } from './how/how.component'
 
 const routes: RouterConfig = [
   {
@@ -8,8 +9,12 @@ const routes: RouterConfig = [
     component: SongComponent
   },
   {
-    path: 'contact',
-    component: ContactComponent
+    path: 'how-it-works',
+    component: HowComponent
+  },
+  {
+    path: 'get-involved',
+    component: InvolvedComponent
   },
   {
     path: '',

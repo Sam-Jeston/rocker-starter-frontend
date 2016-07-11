@@ -14,10 +14,6 @@ export class SongComponent implements OnInit {
   constructor(private songService: SongService) { }
 
   getSong() {
-    this.songs = this.songService.getSong()
-  }
-
-  ngOnInit() {
-    this.getSong()
+    this.songService.getSong().then((data) => console.log(data))
   }
 }
