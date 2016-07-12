@@ -1,5 +1,21 @@
-<h1 class="cover-heading">Generate a new track</h1>
-<p class="lead">Trying to write a new track but not feeling inspired? Let me help.</p>
-<p class="lead">
-  <button class="btn btn-lg btn-secondary" (click)="getSong()">Generate</button>
-</p>
+<div *ngIf="!songData">
+  <h1 class="cover-heading">Generate a new track</h1>
+  <p class="lead">Trying to write a new track but not feeling inspired? Let me help.</p>
+  <p class="lead">
+    <button class="btn btn-lg btn-secondary" (click)="getSong()">Generate</button>
+  </p>
+</div>
+<div *ngIf="songData">
+  <h1>Progression</h1>
+  <h3>{{songData.progression}}</h3>
+  <div *ngIf="displaySong">
+    <audio id="audio" [src]="songData.fileName" controls autoplay>
+      <p>I'm sorry but your browser doesn't support the <code>audio</code> element, so you can't run the demo. You can still download the generated song.</p>
+    </audio>
+  </div>
+  <p style="padding-top:15px">
+    <button class="btn btn-lg btn-secondary" (click)="resetSong()">New Song</button>
+    <a class="btn btn-lg btn-secondary" target="_self" [href]="songData.fileName" [download]="songData.fileName">Download</a>
+    <button class="btn btn-lg btn-secondary" (click)="clear()">Reset</button>
+  </p>
+</div>

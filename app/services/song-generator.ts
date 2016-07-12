@@ -18,7 +18,7 @@ interface Bar {
 
 @Injectable()
 export class SongService {
-  private getSongUrl = 'http://localhost:3000/create-song'
+  private getSongUrl = '/api/create-song'
 
   constructor(private http: Http) {}
 
@@ -32,5 +32,9 @@ export class SongService {
       .toPromise()
       .then(response => response.json())
       .catch(this.handleError)
+  }
+
+  downloadSong(fileName) {
+    window.open(fileName, '_blank', '')
   }
 }

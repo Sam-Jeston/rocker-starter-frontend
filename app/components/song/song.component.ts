@@ -7,13 +7,26 @@ import { SongService } from '../../services/song-generator'
   providers: [SongService]
 })
 
-export class SongComponent implements OnInit {
-  title = 'This is the title'
-  songs = null
+export class SongComponent {
+  songData = null
+  displaySong = false
 
   constructor(private songService: SongService) { }
 
   getSong() {
-    this.songService.getSong().then((data) => console.log(data))
+    this.songService.getSong().then((data) => {
+      this.songData = data
+      this.displaySong = true
+    )
+  }
+
+  resetSong() {
+    this.displaySong = false
+    this.getSong()
+  }
+
+  clear() {
+    this.songData = null
+    this.displaySong = false
   }
 }
