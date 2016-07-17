@@ -158,3 +158,9 @@ body {
     width: 42rem;
   }
 }
+
+/* Custom */
+.text-left {
+  text-align: left;
+  padding-left: 12px;
+}

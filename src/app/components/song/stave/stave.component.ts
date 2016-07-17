@@ -41,8 +41,6 @@ export class StaveComponent implements OnInit {
       '3': "2"
     }
 
-    console.log(this.notes)
-
     // Create an SVG renderer and attach it to the DIV element named "boo".
     let div = document.getElementById('stave')
     let renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG)
@@ -53,7 +51,7 @@ export class StaveComponent implements OnInit {
     context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed")
 
     // Create a stave of width 400 at position 10, 40 on the canvas.
-    let displayStave = new VF.Stave(10, 40, 600)
+    let displayStave = new VF.Stave(10, 20, 600)
     displayStave.addClef("treble").addTimeSignature("4/4")
 
     if (this.key === 'major') {
@@ -74,7 +72,7 @@ export class StaveComponent implements OnInit {
       }
     }
 
-    function createNotes (bar) {
+    function createNotes (bar, last = false) {
       _.each(bar, (note) => {
         if (note[1] === '#') {
           note = note.split('#').join('')
@@ -103,7 +101,6 @@ export class StaveComponent implements OnInit {
             createdNotes.push(new VF.StaveNote({ keys: [noteMap[note[0]]], duration: tempMap[tempExtract][0] }))
             createdNotes.push(new VF.StaveNote({ keys: [noteMap[note[0]]], duration: tempMap[tempExtract][1] }))
             let currentNotes = createdNotes.length
-            console.log(currentNotes)
             tiePositions.push(new VF.StaveTie({
               first_note: createdNotes[currentNotes - 2],
               last_note: createdNotes[currentNotes - 1],
@@ -114,13 +111,18 @@ export class StaveComponent implements OnInit {
         }
       })
 
-      createdNotes.push(new Vex.Flow.BarNote(1))
+      if (last) {
+        createdNotes.push(new Vex.Flow.BarNote(5))
+      } else {
+        createdNotes.push(new Vex.Flow.BarNote(1))
+      }
     }
 
     createNotes(this.notes.firstBar)
     createNotes(this.notes.secondBar)
     createNotes(this.notes.thirdBar)
-    createNotes(this.notes.fourthBar)
+    createNotes(this.notes.fourthBar, true)
+
     let beams = VF.Beam.generateBeams(createdNotes)
     VF.Formatter.FormatAndDraw(context, displayStave, createdNotes)
     beams.forEach(function(b) {b.setContext(context).draw()})
