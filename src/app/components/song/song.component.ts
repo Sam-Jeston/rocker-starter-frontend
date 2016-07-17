@@ -3,7 +3,7 @@ import { SongService } from '../../services/song-generator'
 
 @Component({
   selector: 'song',
-  templateUrl: 'app/components/song/song.html',
+  templateUrl: 'song.html',
   providers: [SongService]
 })
 
@@ -17,7 +17,7 @@ export class SongComponent {
     this.songService.getSong().then((data) => {
       this.songData = data
       this.displaySong = true
-    )
+    })
   }
 
   resetSong() {

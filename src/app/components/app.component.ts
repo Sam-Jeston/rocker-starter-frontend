@@ -6,7 +6,7 @@ import { HowComponent } from './how/how.component'
 
 @Component({
   selector: 'my-app',
-  templateUrl: 'app/components/app.html',
+  templateUrl: 'app.html',
   directives: [ROUTER_DIRECTIVES],
   precompile: [SongComponent, InvolvedComponent, HowComponent]
 })
