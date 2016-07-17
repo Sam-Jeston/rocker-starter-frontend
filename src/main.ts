@@ -7,6 +7,8 @@ import { enableProdMode } from '@angular/core'
 import { AppComponent } from './app/components/app.component'
 import { APP_ROUTER_PROVIDERS } from './app/components/app.routes'
 
+import './css/styles.css'
+
 if (process.env.ENV === 'production') {
   enableProdMode()
 }

@@ -13,7 +13,7 @@ import 'rxjs'
 import 'jquery'
 import 'tether'
 import 'bootstrap'
+import 'lodash'
 
 import '../node_modules/tether/dist/css/tether.min.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import './css/styles.css'
