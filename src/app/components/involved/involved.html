@@ -1,1 +1,9 @@
-<h1>Hello from involved</h1>
+<h1>Please get involved</h1>
+<div class="alert alert-danger" role="alert" [hidden]="!uploadError">
+  {{uploadError}}
+</div>
+<div class="alert alert-success" role="alert" [hidden]="!uploadSuccess">
+  File successfully uploaded!
+</div>
+<progress class="progress progress-success" [value]="uploadProgress" max="100" [hidden]="!isUploading">{{uploadProgress}}</progress>
+<input type="file" (change)="fileChange($event)" [hidden]="isUploading">
