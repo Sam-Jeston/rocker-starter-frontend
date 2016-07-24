@@ -1,9 +1,22 @@
-<h1>Please get involved</h1>
-<div class="alert alert-danger" role="alert" [hidden]="!uploadError">
-  {{uploadError}}
+<div class="text-left">
+  <p>The current sample pool is limited to those I've recorded myself. Anyone is welcome to contribute tracks and I will add them to the pool.</p>
+  <p>All samples submitted <b>must</b> adhere to the following conditions:</p>
+  <ul>
+    <li>120BPM</li>
+    <li>8 bars in length, with a four bar progression repeated once</li>
+    <li>Be in the key of A Major or A Minor</li>
+  </ul>
+  <p>All instruments are welcome. Use the upload field below or email your samples to me - <a href="mailto:sam.jeston@gmail.com">sam.jeston@gmail.com</a></p>
+  <div class="alert alert-danger" role="alert" [hidden]="!uploadError">
+    {{uploadError}}
+  </div>
+  <div class="alert alert-success" role="alert" [hidden]="!uploadSuccess">
+    File successfully uploaded! Feel free to upload again.
+  </div>
+  <progress class="progress progress-success" [value]="uploadProgress" max="100" [hidden]="!isUploading">{{uploadProgress}}</progress>
 </div>
-<div class="alert alert-success" role="alert" [hidden]="!uploadSuccess">
-  File successfully uploaded!
+<div [hidden]="isUploading">
+  <input id="file" name="file" type="file" (change)="fileChange($event)" hidden>
+  <input id="i-see-bots" type="text" [(ngModel)]="botFinder" hidden>
+  <label for="file" class="btn btn-success">Choose a file</label>
 </div>
-<progress class="progress progress-success" [value]="uploadProgress" max="100" [hidden]="!isUploading">{{uploadProgress}}</progress>
-<input type="file" (change)="fileChange($event)" [hidden]="isUploading">

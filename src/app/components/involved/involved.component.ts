@@ -15,6 +15,7 @@ export class InvolvedComponent {
   uploadRoute: string = '/api/upload-file'
   uploadError: string
   uploadSuccess: boolean
+  botFinder: string
 
   constructor(private fileUploadService: FileUploadService) { }
 
@@ -23,6 +24,11 @@ export class InvolvedComponent {
     this.uploadError = ''
 
     this.targetFile = event.srcElement.files[0]
+    console.log(this.botFinder)
+    if (this.botFinder) {
+      this.uploadError = 'I see you bot'
+      return
+    }
 
     if (this.targetFile.size > 1000000) {
       this.uploadError = 'File size must be below 1mb'
